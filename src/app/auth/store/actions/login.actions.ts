@@ -10,7 +10,7 @@ export const loginAction = createAction(
 );
 export const loginSuccessAction = createAction(
   ActionTypes.LOGIN_SUCCESS,
-  props<{ request: CurrentUserInterface }>()
+  props<{ currentUser: CurrentUserInterface }>()
 );
 export const loginFailureAction = createAction(
   ActionTypes.LOGIN_FAILURE,
