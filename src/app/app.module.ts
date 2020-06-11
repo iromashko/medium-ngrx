@@ -13,6 +13,7 @@ import { TopbarModule } from './shared/modules/topbar/topbar.module';
 import { PersistanceService } from './shared/services/persistance.service';
 import { AuthInterceptor } from './shared/services/auth-interceptor.service';
 import { GlobalFeedModule } from './global-feed/global-feed.module';
+import { BannerModule } from './shared/modules/banner/banner.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +24,7 @@ import { GlobalFeedModule } from './global-feed/global-feed.module';
     AuthModule,
     TopbarModule,
     GlobalFeedModule,
+    BannerModule,
     StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
