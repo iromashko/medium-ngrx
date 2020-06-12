@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { ErrorMessageModule } from '../error-mesage/error-message.module';
 import { LoadingModule } from '../loading/loading.module';
 import { PaginationModule } from '../pagination/pagination.module';
+import { TaglistModule } from '../tag-list/tag-list.module';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { PaginationModule } from '../pagination/pagination.module';
     ErrorMessageModule,
     LoadingModule,
     PaginationModule,
+    TaglistModule,
   ],
   declarations: [FeedComponent],
   exports: [FeedComponent],

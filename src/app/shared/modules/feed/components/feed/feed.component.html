@@ -26,7 +26,7 @@
       <h1>{{ article.title }}</h1>
       <p>{{ article.description }}</p>
       <span>Read more..</span>
-      HERE LIST OF TAGS
+      <app-mc-tag-list [tags]="article.tagList"></app-mc-tag-list>
     </a>
   </div>
   <app-mc-pagination
