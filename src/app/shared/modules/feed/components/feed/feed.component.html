@@ -1,6 +1,3 @@
-<!-- <div *ngIf="isLoading$ | async">
-  Loading...
-</div> -->
 <app-mc-loading *ngIf="isLoading$ | async"></app-mc-loading>
 <div *ngIf="error$ | async">
   Some error happened...
@@ -32,5 +29,10 @@
       HERE LIST OF TAGS
     </a>
   </div>
-  PAGINATION
+  <app-mc-pagination
+    [total]="(feed$ | async)?.articlesCount"
+    [limit]="limit"
+    [url]="baseUrl"
+    [currentPage]="currentPage"
+  ></app-mc-pagination>
 </div>
