@@ -15,6 +15,8 @@ import { AuthInterceptor } from './shared/services/auth-interceptor.service';
 import { GlobalFeedModule } from './global-feed/global-feed.module';
 import { BannerModule } from './shared/modules/banner/banner.module';
 import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
+import { YourFeedModule } from './your-feed/your-feed.module';
+import { TagFeedModule } from './tag-feed/tag-feed.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,6 +27,8 @@ import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
     AuthModule,
     TopbarModule,
     GlobalFeedModule,
+    YourFeedModule,
+    TagFeedModule,
     BannerModule,
     StoreModule.forRoot({
       router: routerReducer,
