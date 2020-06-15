@@ -1,4 +1,4 @@
-import { ArticleInterface } from 'src/app/shared/modules/feed/types/article.interface';
+import { ArticleInterface } from 'src/app/shared/types/article.interface';
 
 export interface ArticleStateInterface {
   isLoading: boolean;

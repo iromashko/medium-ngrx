@@ -1,38 +1,43 @@
-<app-mc-loading *ngIf="isLoading$ | async"></app-mc-loading>
-<div *ngIf="error$ | async">
-  Some error happened...
-</div>
-<app-mc-error-message *ngIf="error$ | async"></app-mc-error-message>
-<div *ngIf="feed$ | async">
-  <div
-    class="article-preview"
-    *ngFor="let article of (feed$ | async)?.articles"
-  >
-    <div class="article-meta">
-      <a [routerLink]="['/profiles', article.author.username]">
-        <img [src]="article.author.image" alt="" />
-      </a>
-      <div class="info">
-        <a [routerLink]="['/profiles', article.author.username]" class="author">
-          {{ article.author.username }}
+<div class="article-page">
+  <div class="banner">
+    <div class="container" *ngIf="article">
+      <h1>{{ article.title }}</h1>
+      <div class="article-meta">
+        <a [routerLink]="['/profiles', article.author.username]">
+          <img [src]="article.author.image" />
         </a>
-        <span class="date">{{ article.createdAt }}</span>
-      </div>
-      <div class="pull-xs-right">
-        ADD TO FAVORITES
+        <div class="info">
+          <a [routerLink]="['/profiles', article.author.username]">
+            {{ article.author.username }}
+          </a>
+          <span class="date">
+            {{ article.createdAt }}
+          </span>
+        </div>
+        <span *ngIf="isAuthor$ | async">
+          <a
+            [routerLink]="['/articles', article.slug, '/edit']"
+            class="btn btn-outline-secondary btn-sm"
+          >
+            <i class="ion-edit"></i>
+            Edit Article
+          </a>
+          DELETE BUTTON
+        </span>
       </div>
     </div>
-    <a [routerLink]="['/articles', article.slug]" class="preview-link">
-      <h1>{{ article.title }}</h1>
-      <p>{{ article.description }}</p>
-      <span>Read more..</span>
-      <app-mc-tag-list [tags]="article.tagList"></app-mc-tag-list>
-    </a>
   </div>
-  <app-mc-pagination
-    [total]="(feed$ | async)?.articlesCount"
-    [limit]="limit"
-    [url]="baseUrl"
-    [currentPage]="currentPage"
-  ></app-mc-pagination>
+  <div class="container page">
+    <app-mc-loading *ngIf="isLoading$ | async"></app-mc-loading>
+    <app-mc-error-message *ngIf="error$ | async"></app-mc-error-message>
+
+    <div class="row article-content" *ngIf="article">
+      <div class="col-xs-12">
+        <div>
+          <p>{{ article.body }}</p>
+        </div>
+        <app-mc-tag-list [tags]="article.tagList"></app-mc-tag-list>
+      </div>
+    </div>
+  </div>
 </div>

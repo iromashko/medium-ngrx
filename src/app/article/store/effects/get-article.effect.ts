@@ -8,7 +8,7 @@ import {
   getArticleSuccessAction,
   getArticleFailureAction,
 } from '../actions/get-article.action';
-import { ArticleInterface } from '../../types/article.interface';
+import { ArticleInterface } from 'src/app/shared/types/article.interface';
 
 @Injectable()
 export class GetArticleEffect {
