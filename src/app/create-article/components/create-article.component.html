@@ -1,1 +1,5 @@
-<app-mc-article-form></app-mc-article-form>
+<app-mc-article-form
+  [initialValues]="initialValues"
+  [isSubmitting]="false"
+  (articleSubmit)="onSubmit($event)"
+></app-mc-article-form>
