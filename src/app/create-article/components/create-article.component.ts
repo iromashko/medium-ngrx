@@ -8,6 +8,7 @@ import {
   validationErrorsSelector,
 } from '../store/selectors';
 import { createArticleAction } from '../store/actions/create-article.action';
+import * as faker from 'faker';
 
 @Component({
   selector: 'app-mc-create-article',
@@ -18,10 +19,12 @@ export class CreateArticleComponent implements OnInit {
   constructor(private store: Store) {}
 
   initialValues: ArticleInputInterface = {
-    title: '',
-    description: '',
-    body: '',
-    tagList: [],
+    title: faker.lorem.sentence(),
+    description: faker.lorem.paragraph(),
+    body: faker.lorem.paragraphs(),
+    tagList: new Array(Math.floor(Math.random() * 5))
+      .fill(null)
+      .map((_) => faker.lorem.word()),
   };
 
   isSubmitting$: Observable<boolean>;
