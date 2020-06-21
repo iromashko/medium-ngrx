@@ -1,18 +1,18 @@
-import { ArticleStateInterface } from '../types/article-state.interface';
-import { createReducer, on, Action } from '@ngrx/store';
+import {createReducer, on, Action} from '@ngrx/store'
+import {routerNavigationAction} from '@ngrx/router-store'
 
-import { routerNavigationAction } from '@ngrx/router-store';
+import {ArticleStateInterface} from 'src/app/article/types/articleState.interface'
 import {
   getArticleAction,
   getArticleSuccessAction,
-  getArticleFailureAction,
-} from './actions/get-article.action';
+  getArticleFailureAction
+} from 'src/app/article/store/actions/getArticle.action'
 
 const initialState: ArticleStateInterface = {
   data: null,
   isLoading: false,
-  error: null,
-};
+  error: null
+}
 
 const articleReducer = createReducer(
   initialState,
@@ -20,7 +20,7 @@ const articleReducer = createReducer(
     getArticleAction,
     (state): ArticleStateInterface => ({
       ...state,
-      isLoading: true,
+      isLoading: true
     })
   ),
   on(
@@ -28,19 +28,19 @@ const articleReducer = createReducer(
     (state, action): ArticleStateInterface => ({
       ...state,
       isLoading: false,
-      data: action.article,
+      data: action.article
     })
   ),
   on(
     getArticleFailureAction,
     (state): ArticleStateInterface => ({
       ...state,
-      isLoading: false,
+      isLoading: false
     })
   ),
   on(routerNavigationAction, (): ArticleStateInterface => initialState)
-);
+)
 
 export function reducers(state: ArticleStateInterface, action: Action) {
-  return articleReducer(state, action);
+  return articleReducer(state, action)
 }

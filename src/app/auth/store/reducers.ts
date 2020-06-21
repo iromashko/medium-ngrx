@@ -1,28 +1,29 @@
-import { AuthStateInterface } from '../types/auth-state.interface';
-import { createReducer, on, Action, State } from '@ngrx/store';
+import {createReducer, on, Action} from '@ngrx/store'
+
+import {AuthStateInterface} from 'src/app/auth/types/authState.interface'
 import {
   registerAction,
   registerSuccessAction,
-  registerFailureAction,
-} from './actions/register.action';
+  registerFailureAction
+} from 'src/app/auth/store/actions/register.action'
 import {
   loginAction,
   loginSuccessAction,
-  loginFailureAction,
-} from './actions/login.actions';
+  loginFailureAction
+} from 'src/app/auth/store/actions/login.action'
 import {
   getCurrentUserAction,
   getCurrentUserSuccessAction,
-  getCurrentUserFailureAction,
-} from './actions/get-current-user.actions';
+  getCurrentUserFailureAction
+} from 'src/app/auth/store/actions/getCurrentUser.action'
 
 const initialState: AuthStateInterface = {
   isSubmitting: false,
   isLoading: false,
   currentUser: null,
   validationErrors: null,
-  isLoggedIn: null,
-};
+  isLoggedIn: null
+}
 
 const authReducer = createReducer(
   initialState,
@@ -31,7 +32,7 @@ const authReducer = createReducer(
     (state): AuthStateInterface => ({
       ...state,
       isSubmitting: true,
-      validationErrors: null,
+      validationErrors: null
     })
   ),
   on(
@@ -40,7 +41,7 @@ const authReducer = createReducer(
       ...state,
       isSubmitting: false,
       isLoggedIn: true,
-      currentUser: action.currentUser,
+      currentUser: action.currentUser
     })
   ),
   on(
@@ -48,7 +49,7 @@ const authReducer = createReducer(
     (state, action): AuthStateInterface => ({
       ...state,
       isSubmitting: false,
-      validationErrors: action.errors,
+      validationErrors: action.errors
     })
   ),
   on(
@@ -56,7 +57,7 @@ const authReducer = createReducer(
     (state): AuthStateInterface => ({
       ...state,
       isSubmitting: true,
-      validationErrors: null,
+      validationErrors: null
     })
   ),
   on(
@@ -65,7 +66,7 @@ const authReducer = createReducer(
       ...state,
       isSubmitting: false,
       isLoggedIn: true,
-      currentUser: action.currentUser,
+      currentUser: action.currentUser
     })
   ),
   on(
@@ -73,14 +74,14 @@ const authReducer = createReducer(
     (state, action): AuthStateInterface => ({
       ...state,
       isSubmitting: false,
-      validationErrors: action.errors,
+      validationErrors: action.errors
     })
   ),
   on(
     getCurrentUserAction,
     (state): AuthStateInterface => ({
       ...state,
-      isLoading: true,
+      isLoading: true
     })
   ),
   on(
@@ -89,17 +90,20 @@ const authReducer = createReducer(
       ...state,
       isLoading: false,
       isLoggedIn: true,
-      currentUser: action.currentUser,
+      currentUser: action.currentUser
     })
   ),
-  on(getCurrentUserFailureAction, (state) => ({
-    ...state,
-    isLoading: false,
-    isLoggedIn: false,
-    currentUser: null,
-  }))
-);
+  on(
+    getCurrentUserFailureAction,
+    (state): AuthStateInterface => ({
+      ...state,
+      isLoading: false,
+      isLoggedIn: false,
+      currentUser: null
+    })
+  )
+)
 
 export function reducers(state: AuthStateInterface, action: Action) {
-  return authReducer(state, action);
+  return authReducer(state, action)
 }

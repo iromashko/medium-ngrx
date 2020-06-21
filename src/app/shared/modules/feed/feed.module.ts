@@ -1,16 +1,17 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FeedComponent } from './components/feed/feed.component';
-import { FeedService } from './services/feed.service';
-import { EffectsModule } from '@ngrx/effects';
-import { GetFeedEffect } from './store/effects/get-feed.effect';
-import { StoreModule } from '@ngrx/store';
-import { reducers } from './store/reducers';
-import { RouterModule } from '@angular/router';
-import { ErrorMessageModule } from '../error-mesage/error-message.module';
-import { LoadingModule } from '../loading/loading.module';
-import { PaginationModule } from '../pagination/pagination.module';
-import { TaglistModule } from '../tag-list/tag-list.module';
+import {NgModule} from '@angular/core'
+import {CommonModule} from '@angular/common'
+import {EffectsModule} from '@ngrx/effects'
+import {RouterModule} from '@angular/router'
+import {StoreModule} from '@ngrx/store'
+
+import {FeedComponent} from 'src/app/shared/modules/feed/components/feed/feed.component'
+import {FeedService} from 'src/app/shared/modules/feed/services/feed.service'
+import {GetFeedEffect} from 'src/app/shared/modules/feed/store/effects/getFeed.effect'
+import {reducers} from 'src/app/shared/modules/feed/store/reducers'
+import {ErrorMessageModule} from 'src/app/shared/modules/errorMessage/errorMessage.module'
+import {LoadingModule} from 'src/app/shared/modules/loading/loading.module'
+import {PaginationModule} from 'src/app/shared/modules/pagination/pagination.module'
+import {TagListModule} from '../tagList/tagList.module'
 
 @NgModule({
   imports: [
@@ -21,10 +22,10 @@ import { TaglistModule } from '../tag-list/tag-list.module';
     ErrorMessageModule,
     LoadingModule,
     PaginationModule,
-    TaglistModule,
+    TagListModule
   ],
   declarations: [FeedComponent],
   exports: [FeedComponent],
-  providers: [FeedService],
+  providers: [FeedService]
 })
 export class FeedModule {}

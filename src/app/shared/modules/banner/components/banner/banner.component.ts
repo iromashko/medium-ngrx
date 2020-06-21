@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core'
 
 @Component({
-  selector: 'app-mc-banner',
-  templateUrl: './banner.component.html',
-  styleUrls: ['./banner.component.scss'],
+  selector: 'mc-banner',
+  templateUrl: './banner.component.html'
 })
 export class BannerComponent {}
