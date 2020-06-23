@@ -1,29 +1,29 @@
-import {createReducer, on, Action} from '@ngrx/store'
+import { createReducer, on, Action } from '@ngrx/store';
 
-import {CreateArticleStateInterface} from 'src/app/createArticle/types/createArticleState.interface'
+import { CreateArticleStateInterface } from 'src/app/createArticle/types/createArticleState.interface';
 import {
   createArticleAction,
   createArticleSuccessAction,
-  createArticleFailureAction
-} from 'src/app/createArticle/store/actions/createArticle.action'
-import {EditArticleStateInterface} from 'src/app/editArticle/types/editArticleState.interface'
+  createArticleFailureAction,
+} from 'src/app/createArticle/store/actions/createArticle.action';
+import { EditArticleStateInterface } from 'src/app/editArticle/types/editArticleState.interface';
 import {
   updateArticleAction,
   updateArticleSuccessAction,
-  updateArticleFailureAction
-} from 'src/app/editArticle/store/actions/updateArticle.action'
+  updateArticleFailureAction,
+} from 'src/app/editArticle/store/actions/updateArticle.action';
 import {
   getArticleAction,
   getArticleSuccessAction,
-  getArticleFailureAction
-} from 'src/app/editArticle/store/actions/getArticle.action'
+  getArticleFailureAction,
+} from 'src/app/editArticle/store/actions/getArticle.action';
 
 const initialState: EditArticleStateInterface = {
   isLoading: false,
   article: null,
   isSubmitting: false,
-  validationErrors: null
-}
+  validationErrors: null,
+};
 
 const editArticleReducer = createReducer(
   initialState,
@@ -31,14 +31,14 @@ const editArticleReducer = createReducer(
     updateArticleAction,
     (state): EditArticleStateInterface => ({
       ...state,
-      isSubmitting: true
+      isSubmitting: true,
     })
   ),
   on(
     updateArticleSuccessAction,
     (state): EditArticleStateInterface => ({
       ...state,
-      isSubmitting: false
+      isSubmitting: false,
     })
   ),
   on(
@@ -46,14 +46,14 @@ const editArticleReducer = createReducer(
     (state, action): EditArticleStateInterface => ({
       ...state,
       isSubmitting: false,
-      validationErrors: action.errors
+      validationErrors: action.errors,
     })
   ),
   on(
     getArticleAction,
     (state): EditArticleStateInterface => ({
       ...state,
-      isLoading: true
+      isLoading: true,
     })
   ),
   on(
@@ -61,18 +61,18 @@ const editArticleReducer = createReducer(
     (state, action): EditArticleStateInterface => ({
       ...state,
       isLoading: false,
-      article: action.article
+      article: action.article,
     })
   ),
   on(
     getArticleFailureAction,
     (state): EditArticleStateInterface => ({
       ...state,
-      isLoading: false
+      isLoading: false,
     })
   )
-)
+);
 
 export function reducers(state: EditArticleStateInterface, action: Action) {
-  return editArticleReducer(state, action)
+  return editArticleReducer(state, action);
 }

@@ -2,9 +2,13 @@
   <li
     *ngFor="let page of pages"
     class="page-item"
-    [ngClass]="{active: currentPageProps === page}"
+    [ngClass]="{ active: currentPageProps === page }"
   >
-    <a [routerLink]="[urlProps]" [queryParams]="{page: page}" class="page-link">
+    <a
+      [routerLink]="[urlProps]"
+      [queryParams]="{ page: page }"
+      class="page-link"
+    >
       {{ page }}
     </a>
   </li>

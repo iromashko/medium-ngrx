@@ -5,5 +5,5 @@ export enum ActionTypes {
 
   GET_ARTICLE = '[Update article] Get Article',
   GET_ARTICLE_SUCCESS = '[Update article] Get Article success',
-  GET_ARTICLE_FAILURE = '[Update article] Get Article failure'
+  GET_ARTICLE_FAILURE = '[Update article] Get Article failure',
 }
