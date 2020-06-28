@@ -1,30 +1,30 @@
-<div class="feed-toggle">
-  <ul class="nav nav-pills outline-active">
-    <li class="nav-item" *ngIf="isLoggedIn$ | async">
-      <a [routerLink]="['/feed']" class="nav-link" routerLinkActive="active"
-        >Your feed</a
-      >
-    </li>
-
-    <li class="nav-item">
-      <a
-        [routerLink]="['/']"
-        class="nav-link"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }"
-        >Global feed</a
-      >
-    </li>
-
-    <li class="nav-item" *ngIf="tagNameProps">
-      <a
-        [routerLink]="['/tags', tagNameProps]"
-        class="nav-link"
-        routerLinkActive="active"
-      >
-        <i class="ion-pound"></i>
-        {{ tagNameProps }}
-      </a>
-    </li>
-  </ul>
+<div class="flex">
+  <ng-container *ngIf="isLoggedIn$ | async">
+    <a
+      [routerLink]="['/feed']"
+      routerLinkActive="bb bw1"
+      class="f5 no-underline bg-animate inline-flex items-center pa3 border-box"
+    >
+      <span class="pl1">Your feed</span>
+    </a>
+  </ng-container>
+  <a
+    routerLinkActive="bb bw1"
+    [routerLink]="['/']"
+    [routerLinkActiveOptions]="{ exact: true }"
+    class="f5 no-underline inline-flex items-center pa3 border-box"
+  >
+    <span class="pr1">Global feed</span>
+  </a>
+  <ng-container *ngIf="tagNameProps">
+    <a
+      routerLinkActive="bb bw1"
+      [routerLink]="['/tags', tagNameProps]"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="f5 ttc no-underline inline-flex items-center pa3 border-box"
+    >
+      <i class="ion-pound"></i>
+      {{ tagNameProps }}
+    </a>
+  </ng-container>
 </div>
