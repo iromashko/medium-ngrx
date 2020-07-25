@@ -28,15 +28,14 @@
         />
       </div>
     </fieldset>
-    <div class="">
-      <input
-        class="b ph3 pv2 input-reset ba b--green pointer f6 dib"
-        type="submit"
-        value="Sign in"
-        type="submit"
-        [disabled]="isSubmitting$ | async"
-      />
-    </div>
+
+    <button
+      class="b ph3 pv2 input-reset ba bg-light-green pointer f6 dib"
+      type="submit"
+      [disabled]="isSubmitting$ | async"
+    >
+      Sign in
+    </button>
   </form>
 </main>
 <!--
