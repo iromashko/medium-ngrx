@@ -1,3 +1,45 @@
+<main class="pa4 black-80">
+  <form [formGroup]="form" class="measure center" (ngSubmit)="onSubmit()">
+    <fieldset id="sign_up" class="ba b--transparent ph0 mh0">
+      <legend class="f2 fw6 ph0 mh0 tc">Sign In</legend>
+      <div class="lh-copy mt1 tc">
+        <a [routerLink]="['/register']" class="f6 link dim">Need an account?</a>
+      </div>
+      <mc-backend-error-messages
+        *ngIf="backendErrors$ | async"
+        [backendErrors]="backendErrors$ | async"
+      ></mc-backend-error-messages>
+      <div class="mt1">
+        <label class="db fw6 lh-copy f6" for="email-address">Email</label>
+        <input
+          class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
+          type="text"
+          formControlName="email"
+        />
+      </div>
+      <div class="mv3">
+        <label class="db fw6 lh-copy f6" for="password">Password</label>
+        <input
+          class="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
+          type="password"
+          name="password"
+          placeholder="Password"
+          formControlName="password"
+        />
+      </div>
+    </fieldset>
+    <div class="">
+      <input
+        class="b ph3 pv2 input-reset ba b--green pointer f6 dib"
+        type="submit"
+        value="Sign in"
+        type="submit"
+        [disabled]="isSubmitting$ | async"
+      />
+    </div>
+  </form>
+</main>
+<!--
 <div class="auth-page">
   <div class="container page">
     <div class="row">
@@ -40,4 +82,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
