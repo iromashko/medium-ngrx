@@ -16,7 +16,7 @@ import { CurrentUserInterface } from 'src/app/shared/types/currentUser.interface
 @Component({
   selector: 'mc-user-profile',
   templateUrl: './userProfile.component.html',
-  styleUrls: ['./userProfile.component.scss'],
+  styleUrls: [],
 })
 export class UserProfileComponent implements OnInit {
   userProfile: UserProfileInterface;

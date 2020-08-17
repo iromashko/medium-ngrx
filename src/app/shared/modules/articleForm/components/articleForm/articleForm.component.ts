@@ -6,7 +6,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 @Component({
   selector: 'mc-article-form',
   templateUrl: './articleForm.component.html',
-  styleUrls: ['./articleForm.component.scss'],
+  styleUrls: [],
 })
 export class ArticleFormComponent implements OnInit {
   @Input('initialValues') initialValuesProps: ArticleInputInterface;

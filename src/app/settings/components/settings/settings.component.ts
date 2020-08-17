@@ -17,7 +17,7 @@ import { logoutAction } from 'src/app/auth/store/actions/sync.action';
 @Component({
   selector: 'mc-settings',
   templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.scss'],
+  styleUrls: [],
 })
 export class SettingsComponent implements OnInit, OnDestroy {
   form: FormGroup;

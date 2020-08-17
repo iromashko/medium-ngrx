@@ -12,7 +12,7 @@ import {
 @Component({
   selector: 'mc-topbar',
   templateUrl: './topBar.component.html',
-  styleUrls: ['./topBar.component.scss'],
+  styleUrls: [],
 })
 export class TopBarComponent implements OnInit {
   isLoggedIn$: Observable<boolean>;

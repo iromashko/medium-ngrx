@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'mc-tag-feed',
   templateUrl: './tagFeed.component.html',
-  styleUrls: ['./tagFeed.component.scss'],
+  styleUrls: [],
 })
 export class TagFeedComponent implements OnInit {
   tagName: string;

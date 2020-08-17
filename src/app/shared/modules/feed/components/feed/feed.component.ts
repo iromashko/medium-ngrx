@@ -23,7 +23,7 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'mc-feed',
   templateUrl: './feed.component.html',
-  styleUrls: ['./feed.component.scss'],
+  styleUrls: [],
 })
 export class FeedComponent implements OnInit, OnDestroy, OnChanges {
   @Input('apiUrl') apiUrlProps: string;

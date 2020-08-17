@@ -18,7 +18,7 @@ import { updateArticleAction } from 'src/app/editArticle/store/actions/updateArt
 @Component({
   selector: 'mc-edit-article',
   templateUrl: './editArticle.component.html',
-  styleUrls: ['./editArticle.component.scss'],
+  styleUrls: [],
 })
 export class EditArticleComponent implements OnInit {
   initialValues$: Observable<ArticleInputInterface>;
