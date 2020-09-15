@@ -17,12 +17,14 @@
                 type="text"
                 class="form-control form-control-lg"
                 placeholder="Username"
+                data-cy="register:username"
                 formControlName="username"
               />
             </fieldset>
             <fieldset class="form-group">
               <input
                 type="text"
+                data-cy="register:email"
                 class="form-control form-control-lg"
                 placeholder="Email"
                 formControlName="email"
@@ -31,12 +33,14 @@
             <fieldset class="form-group">
               <input
                 type="password"
+                data-cy="register:password"
                 class="form-control form-control-lg"
                 placeholder="Password"
                 formControlName="password"
               />
             </fieldset>
             <button
+              data-cy="register:submit"
               class="btn btn-lg btn-primary pull-xs-right"
               type="submit"
               [disabled]="isSubmitting$ | async"
