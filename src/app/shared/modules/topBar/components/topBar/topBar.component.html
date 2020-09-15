@@ -16,7 +16,7 @@
     </ng-container>
 
     <ng-container *ngIf="isAnonymous$ | async">
-      <a [routerLink]="['/login']" class="link mr3">Sign in</a>
+      <a [routerLink]="['/login']" data-cy="login" class="link mr3">Sign in</a>
       <a [routerLink]="['/register']" data-cy="register" class="link mr3"
         >Sign up</a
       >

@@ -13,6 +13,7 @@
         <label class="db fw6 lh-copy f6" for="email-address">Email</label>
         <input
           class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
+          data-cy="login:email"
           type="text"
           formControlName="email"
         />
@@ -21,6 +22,7 @@
         <label class="db fw6 lh-copy f6" for="password">Password</label>
         <input
           class="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
+          data-cy="login:password"
           type="password"
           name="password"
           placeholder="Password"
@@ -31,6 +33,7 @@
 
     <button
       class="b ph3 pv2 input-reset ba bg-animate hover-bg-light-green pointer f6 dib"
+      data-cy="login:submit"
       type="submit"
       [disabled]="isSubmitting$ | async"
     >
