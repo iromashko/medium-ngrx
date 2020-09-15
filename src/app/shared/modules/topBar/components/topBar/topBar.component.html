@@ -8,6 +8,7 @@
       <a
         [routerLink]="['/profiles', (currentUser$ | async).username]"
         class="link mr3"
+        data-cy="profileName"
       >
         <img [src]="(currentUser$ | async).image" class="br-100 h2 w2" />
         {{ (currentUser$ | async).username }}</a
