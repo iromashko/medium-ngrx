@@ -1,0 +1,7 @@
+{
+  "chromeWebSecurity": false,
+  "defaultCommandTimeout": 10000,
+  "env": {
+    "mediumUrl": "localhost:4200"
+  }
+}
