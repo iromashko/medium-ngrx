@@ -7,11 +7,11 @@
 
 <div class="sidebar" *ngIf="popularTags$ | async">
   <p>Popular Tags</p>
-  <div class="tag-list">
+  <div class="mt-2">
     <a
       *ngFor="let popularTag of popularTags$ | async"
       [routerLink]="['/tags', popularTag]"
-      class="tag-default tag-pill"
+      class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
     >
       {{ popularTag }}
     </a>
