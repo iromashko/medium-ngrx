@@ -5,7 +5,7 @@
   [message]="error$ | async"
 ></mc-error-message>
 
-<div class="sidebar" *ngIf="popularTags$ | async">
+<div *ngIf="popularTags$ | async">
   <p>Popular Tags</p>
   <div class="mt-2">
     <a

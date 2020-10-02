@@ -8,15 +8,22 @@
     *ngFor="let article of (feed$ | async)?.articles"
   >
     <div class="article-meta">
-      <a [routerLink]="['/profiles', article.author.username]">
-        <img [src]="article.author.image" />
+      <a
+        class="inline-flex items-center"
+        [routerLink]="['/profiles', article.author.username]"
+      >
+        <img
+          alt="blog"
+          [src]="article.author.image"
+          class="w-8 h-8 rounded-full flex-shrink-0 object-cover object-center"
+        />
+        <span class="flex-grow flex flex-col pl-4">
+          <span class="title-font font-medium text-gray-900">{{
+            article.author.username
+          }}</span>
+          <span class="text-gray-500 text-sm">{{ article.createdAt }}</span>
+        </span>
       </a>
-      <div class="info">
-        <a [routerLink]="['/profiles', article.author.username]" class="author">
-          {{ article.author.username }}
-        </a>
-        <span class="date">{{ article.createdAt }}</span>
-      </div>
       <div class="pull-xs-right">
         <mc-add-to-favorites
           [isFavorited]="article.favorited"
@@ -26,6 +33,7 @@
         </mc-add-to-favorites>
       </div>
     </div>
+
     <a [routerLink]="['/articles', article.slug]" class="preview-link">
       <h1>{{ article.title }}</h1>
       <p>{{ article.description }}</p>

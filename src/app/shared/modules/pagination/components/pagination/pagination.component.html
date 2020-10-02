@@ -1,13 +1,13 @@
-<ul class="list ph3 ph5-ns pv4">
+<ul class="">
   <li
     *ngFor="let page of pages"
-    class="dib mr1 mb1"
+    class=""
     [ngClass]="{ active: currentPageProps === page }"
   >
     <a
       [routerLink]="[urlProps]"
       [queryParams]="{ page: page }"
-      class="f6 f5-ns b db pa2 link dim dark-gray ba b--black-20"
+      class="bg-white inline-block hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
     >
       {{ page }}
     </a>
