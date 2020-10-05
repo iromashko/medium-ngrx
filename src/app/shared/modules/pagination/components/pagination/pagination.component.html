@@ -1,4 +1,4 @@
-<ul class="">
+<ul class="flex">
   <li
     *ngFor="let page of pages"
     class=""
@@ -7,7 +7,7 @@
     <a
       [routerLink]="[urlProps]"
       [queryParams]="{ page: page }"
-      class="bg-white inline-block hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+      class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
     >
       {{ page }}
     </a>
