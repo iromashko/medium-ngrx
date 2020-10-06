@@ -1,57 +1,56 @@
-<div class="editor-page">
-  <div class="container page">
-    <div class="row">
-      <div class="col-md-10 offset-md-1 col-cs-12">
-        <mc-backend-error-messages
-          *ngIf="errorsProps"
-          [backendErrors]="errorsProps"
-        ></mc-backend-error-messages>
-        <form [formGroup]="form" (ngSubmit)="onSubmit()">
-          <fieldset>
-            <fieldset class="form-group">
-              <input
-                type="text"
-                class="form-control form-control-lg"
-                placeholder="Article title"
-                formControlName="title"
-              />
-            </fieldset>
-            <fieldset class="form-group">
-              <input
-                type="text"
-                class="form-control form-control-lg"
-                placeholder="What is this article about?"
-                formControlName="description"
-              />
-            </fieldset>
-            <fieldset class="form-group">
-              <textarea
-                class="form-control form-control-lg"
-                rows="8"
-                placeholder="Write your article (in markdown)"
-                formControlName="body"
-              ></textarea>
-            </fieldset>
-            <fieldset class="form-group">
-              <input
-                type="text"
-                class="form-control form-control-lg"
-                placeholder="Enter tags"
-                formControlName="tagList"
-              />
-            </fieldset>
-            <fieldset>
-              <button
-                type="submit"
-                class="btn btn-lg pull-xs-right btn-primary"
-                [disabled]="form.invalid || isSubmittingProps"
-              >
-                Publish article
-              </button>
-            </fieldset>
-          </fieldset>
-        </form>
-      </div>
+<div class="w-1/2 mx-auto">
+  <h1 class="text-xl text-center py-3 font-semibold">New post</h1>
+
+  <mc-backend-error-messages
+    *ngIf="errorsProps"
+    [backendErrors]="errorsProps"
+  ></mc-backend-error-messages>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="p-2">
+      <input
+        class="w-full bg-gray-100 border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2"
+        type="text"
+        placeholder="Article title"
+        formControlName="title"
+      />
     </div>
-  </div>
+
+    <div class="p-2">
+      <input
+        class="w-full bg-gray-100 border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2"
+        type="text"
+        placeholder="What is this article about?"
+        formControlName="description"
+      />
+    </div>
+
+    <div class="p-2">
+      <textarea
+        class="w-full bg-gray-100 border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2"
+        rows="8"
+        placeholder="Write your article (in markdown)"
+        formControlName="body"
+      ></textarea>
+    </div>
+
+    <div class="p2">
+      <input
+        class="w-full bg-gray-100 border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2"
+        type="text"
+        placeholder="Enter tags"
+        formControlName="tagList"
+      />
+    </div>
+
+    <div class="p-2">
+      <button
+        class="flex mx-auto text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 text-lg"
+        type="submit"
+        [disabled]="form.invalid || isSubmittingProps"
+      >
+        Publish article
+      </button>
+    </div>
+  </form>
 </div>
