@@ -1,12 +1,20 @@
 <button
   (click)="handleLike()"
   [ngClass]="{
-    btn: true,
-    'btn-sm': true,
-    'btn-primary': isFavorited,
-    'btn-outline-primary': !isFavorited
+    'py-2 px-4 flex items-center border rounded font-semibold': true,
+    'bg-transparent text-green-500': !isFavorited,
+    'bg-green-500 text-white': isFavorited
   }"
 >
-  <i class="ion-heart"></i>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class="h-3 w-3"
+    fill="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z"
+    />
+  </svg>
   <span>&nbsp; {{ favoritesCount }}</span>
 </button>
