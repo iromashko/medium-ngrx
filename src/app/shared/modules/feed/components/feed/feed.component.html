@@ -3,43 +3,44 @@
 <mc-error-message *ngIf="error$ | async"></mc-error-message>
 
 <div *ngIf="feed$ | async">
-  <div class="" *ngFor="let article of (feed$ | async)?.articles">
-    <div class="px-3 flex items-center justify-between">
-      <img
-        alt="blog"
-        class="h-8 w-8 rounded-full"
-        [src]="article.author.image"
-      />
-      <div>
-        <a class="block" [routerLink]="['/profiles', article.author.username]">
-          {{ article.author.username }}
-        </a>
-        <div>
-          <span>{{ article.createdAt }}</span>
-        </div>
+  <div
+    class="article-preview"
+    *ngFor="let article of (feed$ | async)?.articles"
+  >
+    <div class="article-meta">
+      <a
+        class="inline-flex items-center"
+        [routerLink]="['/profiles', article.author.username]"
+      >
+        <img
+          alt="blog"
+          [src]="article.author.image"
+          class="w-8 h-8 rounded-full flex-shrink-0 object-cover object-center"
+        />
+        <span class="flex-grow flex flex-col pl-4">
+          <span class="title-font font-medium text-gray-900">{{
+            article.author.username
+          }}</span>
+          <span class="text-gray-500 text-sm">{{ article.createdAt }}</span>
+        </span>
+      </a>
+      <div class="pull-xs-right">
+        <mc-add-to-favorites
+          [isFavorited]="article.favorited"
+          [articleSlug]="article.slug"
+          [favoritesCount]="article.favoritesCount"
+        >
+        </mc-add-to-favorites>
       </div>
-
-      <mc-add-to-favorites
-        [isFavorited]="article.favorited"
-        [articleSlug]="article.slug"
-        [favoritesCount]="article.favoritesCount"
-      ></mc-add-to-favorites>
     </div>
 
-    <div class="py-10 border-b-2">
+    <a [routerLink]="['/articles', article.slug]" class="preview-link">
       <h1>{{ article.title }}</h1>
       <p>{{ article.description }}</p>
-
-      <div class="flex items-center justify-between">
-        <a [routerLink]="['/articles', article.slug]" class=""
-          ><span>Read more..</span>
-        </a>
-
-        <mc-tag-list [tags]="article.tagList"></mc-tag-list>
-      </div>
-    </div>
+      <span>Read more..</span>
+      <mc-tag-list [tags]="article.tagList"></mc-tag-list>
+    </a>
   </div>
-
   <mc-pagination
     [total]="(feed$ | async)?.articlesCount"
     [limit]="limit"
