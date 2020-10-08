@@ -1,27 +1,27 @@
-<div class="flex">
+<div class="flex flex-col sm:flex-row">
   <ng-container *ngIf="isLoggedIn$ | async">
     <a
       [routerLink]="['/feed']"
-      routerLinkActive="bb bw1"
-      class="f5 no-underline bg-animate inline-flex items-center pa3 border-box"
+      routerLinkActive="border-b-2 "
+      class="text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none"
     >
-      <span class="pl1">Your feed</span>
+      <span>Your feed</span>
     </a>
   </ng-container>
   <a
-    routerLinkActive="bb bw1"
     [routerLink]="['/']"
+    routerLinkActive="border-b-2 "
     [routerLinkActiveOptions]="{ exact: true }"
-    class="f5 no-underline inline-flex items-center pa3 border-box"
+    class="text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none"
   >
-    <span class="pr1">Global feed</span>
+    <span>Global feed</span>
   </a>
   <ng-container *ngIf="tagNameProps">
     <a
-      routerLinkActive="bb bw1"
+      routerLinkActive="border-b-2 "
       [routerLink]="['/tags', tagNameProps]"
       [routerLinkActiveOptions]="{ exact: true }"
-      class="f5 ttc no-underline inline-flex items-center pa3 border-box"
+      class="text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none"
     >
       <i class="ion-pound"></i>
       {{ tagNameProps }}
