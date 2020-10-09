@@ -8,6 +8,7 @@ import {
   isAnonymousSelector,
   currentUserSelector,
 } from 'src/app/auth/store/selectors';
+import { PersistanceService } from 'src/app/shared/services/persistance.service';
 
 @Component({
   selector: 'mc-topbar',

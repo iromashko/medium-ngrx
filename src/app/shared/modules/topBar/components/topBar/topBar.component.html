@@ -1,43 +1,36 @@
-<header class="text-gray-500 bg-gray-900 body-font">
-  <div
-    class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center"
+<header>
+  <nav
+    class="flex item-center justify-end text-uppercase bg-gray-800 text-white"
   >
-    <nav
-      class="md:ml-auto flex flex-wrap items-center text-base justify-center"
-    >
-      <a class="mr-5 hover:text-white" [routerLink]="['/']">Home</a>
+    <a class="p-3" [routerLink]="['/']">Home</a>
 
-      <ng-container *ngIf="isLoggedIn$ | async">
-        <a [routerLink]="['/articles/new']" class="mr-5 hover:text-white"
-          >New Post</a
-        >
-        <a [routerLink]="['/settings']" class="mr-5 hover:text-white"
-          >Settings</a
-        >
-        <a
-          [routerLink]="['/profiles', (currentUser$ | async).username]"
-          class="mr-5 hover:text-white"
-          data-cy="profileName"
-        >
-          <img [src]="(currentUser$ | async).image" class="" />
-          {{ (currentUser$ | async).username }}</a
-        >
-      </ng-container>
+    <ng-container *ngIf="isLoggedIn$ | async">
+      <a class="p-3" [routerLink]="['/articles/new']">New Post</a>
+      <a class="p-3" [routerLink]="['/settings']">Settings</a>
+      <a
+        class="p-3 flex items-center"
+        [routerLink]="['/profiles', (currentUser$ | async).username]"
+        data-cy="profileName"
+      >
+        <div>
+          <img
+            class="rounded-full border-2 border-white h-10 w-10"
+            [src]="(currentUser$ | async).image"
+          />
+        </div>
+        <div class="ml-3">
+          {{ (currentUser$ | async).username }}
+        </div>
+      </a>
+    </ng-container>
 
-      <ng-container *ngIf="isAnonymous$ | async">
-        <a
-          [routerLink]="['/login']"
-          data-cy="login"
-          class="mr-5 hover:text-white"
-          >Sign in</a
-        >
-        <a
-          [routerLink]="['/register']"
-          data-cy="register"
-          class="mr-5 hover:text-white"
-          >Sign up</a
-        >
-      </ng-container>
-    </nav>
-  </div>
+    <ng-container *ngIf="isAnonymous$ | async">
+      <a class="p-3" [routerLink]="['/login']" data-cy="login" class=""
+        >Sign in</a
+      >
+      <a class="p-3" [routerLink]="['/register']" data-cy="register" class=""
+        >Sign up</a
+      >
+    </ng-container>
+  </nav>
 </header>
