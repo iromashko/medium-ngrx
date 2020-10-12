@@ -1,14 +1,13 @@
-<div class="home-page">
+<div>
   <mc-banner></mc-banner>
-  <div class="container page">
-    <div class="row">
-      <div class="col-md-9">
-        <mc-feed-toggler></mc-feed-toggler>
-        <mc-feed [apiUrl]="apiUrl"></mc-feed>
-      </div>
-      <div class="col-md-3">
-        <mc-popular-tags></mc-popular-tags>
-      </div>
+
+  <div class="grid grid-cols-12">
+    <div class="grid-cols-8">
+      <mc-feed-toggler></mc-feed-toggler>
+      <mc-feed [apiUrl]="apiUrl"></mc-feed>
+    </div>
+    <div class="grid-cols-4">
+      <mc-popular-tags></mc-popular-tags>
     </div>
   </div>
 </div>
