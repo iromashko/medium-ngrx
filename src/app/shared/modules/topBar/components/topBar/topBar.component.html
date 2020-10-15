@@ -1,6 +1,6 @@
 <header>
   <nav
-    class="flex item-center justify-end text-uppercase bg-gray-800 text-white"
+    class="flex items-center justify-end text-white bg-gray-800 text-uppercase"
   >
     <a class="p-3" [routerLink]="['/']">Home</a>
 
@@ -8,13 +8,13 @@
       <a class="p-3" [routerLink]="['/articles/new']">New Post</a>
       <a class="p-3" [routerLink]="['/settings']">Settings</a>
       <a
-        class="p-3 flex items-center"
+        class="flex items-center p-3"
         [routerLink]="['/profiles', (currentUser$ | async).username]"
         data-cy="profileName"
       >
         <div>
           <img
-            class="rounded-full border-2 border-white h-10 w-10"
+            class="w-10 h-10 border-2 border-white rounded-full"
             [src]="(currentUser$ | async).image"
           />
         </div>
@@ -25,12 +25,8 @@
     </ng-container>
 
     <ng-container *ngIf="isAnonymous$ | async">
-      <a class="p-3" [routerLink]="['/login']" data-cy="login" class=""
-        >Sign in</a
-      >
-      <a class="p-3" [routerLink]="['/register']" data-cy="register" class=""
-        >Sign up</a
-      >
+      <a class="p-3" [routerLink]="['/login']" data-cy="login">Sign in</a>
+      <a class="p-3" [routerLink]="['/register']" data-cy="register">Sign up</a>
     </ng-container>
   </nav>
 </header>
